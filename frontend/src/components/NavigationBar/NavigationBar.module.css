@@ -32,7 +32,7 @@
   margin: 0 10px 0 0;
 }
 
-/*TODO find out why the FUCK an empty string as content doesn't show shit*/
+/*TODO fix navigationbar seperator*/
 .item::after {
   content: "";
   background-color: var(--color-input-element);
