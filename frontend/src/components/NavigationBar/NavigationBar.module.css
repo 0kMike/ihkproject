@@ -1,0 +1,49 @@
+.navigationBar {
+  align-items: center;
+  background-color: var(--color-background-element);
+  color: var(--color-text-header);
+  display: flex;
+  height: 50px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.menu{
+  margin: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item {
+  margin: 0;
+}
+
+.itemColored {
+  margin: 0 5px;
+  color: var(--color-teal)
+}
+
+.seperator {
+  background-color: var(--color-white-alt);
+  width: 1px;
+  height: 80%;
+  margin: 0 10px 0 0;
+}
+
+/*TODO find out why the FUCK an empty string as content doesn't show shit*/
+.item::after {
+  content: "";
+  background-color: var(--color-input-element);
+  width: 1px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+.profilePicture {
+  margin: 0 10px 0 -5px;
+  padding: 0;
+  height: 20px;
+  background-size: contain;
+}

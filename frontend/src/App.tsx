@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Header from "./components/NavigationBar/NavigationBar";
+import Body from './components/Body/Body';
 
 function App() {
+
+  const [activeSearchTags, setActiveSearchTags] = useState<string[]>([])
+  const [zipCode, setZipCode] = useState<number | null>(null);
+
+  const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode != null;
+
+  const toggleActiveSearchTag = (searchTag: string) => {
+    let newActiveSearchTags = [...activeSearchTags];
+    if (newActiveSearchTags.some(item => item === searchTag)) {
+      setActiveSearchTags(newActiveSearchTags.filter(item => item !== searchTag));
+    } else {
+      newActiveSearchTags.push(searchTag);
+      setActiveSearchTags(newActiveSearchTags);
+    }
+  }
+
+  const initiateSearch = () => {
+    console.error('Search initialized!')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Body
+        activeSearchTags={activeSearchTags}
+        isSearchButtonActive={isSearchButtonActive}
+        toggleActiveSearchTag={toggleActiveSearchTag}
+        initiateSearch={initiateSearch}
+      />
     </div>
   );
 }

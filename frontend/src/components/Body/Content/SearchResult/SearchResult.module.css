@@ -1,0 +1,22 @@
+.resultArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 5% 0 5%;
+  font-size: 1.1em;
+}
+
+.timeLineGraph {
+  border-style: dashed;
+  border-color: lime;
+  margin-top: 10px;
+  flex: 2.5;
+  height: 250px;
+}
+
+.liveResults {
+  margin-top: 10px;
+  border-style: dashed;
+  border-color: orange;
+  flex: 1;
+}
