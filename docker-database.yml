@@ -1,0 +1,13 @@
+services:
+  database:
+    image: postgres:12.4
+    container_name: database
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: timelogcare
+      POSTGRES_USER: timelogcare
+      POSTGRES_PASSWORD: timelogcare
+      volumes: "/var/postgresql/data"
