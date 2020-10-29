@@ -1,13 +1,13 @@
-package de.etecture.backend;
+package care.timelog.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendApplication {
+public class TimelogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(TimelogApplication.class, args);
 	}
 
 }

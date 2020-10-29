@@ -1,6 +1,7 @@
-CREATE TABLE jobs
+CREATE TABLE job
 (
-    jobkey          bigint PRIMARY KEY,
+    id              uuid PRIMARY KEY,
+    jobkey          bigint NOT NULL,
     jobtitle        varchar(255) NOT NULL,
     location        bigint NOT NULL,
     lastdate        date NOT NULL

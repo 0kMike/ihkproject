@@ -1,4 +1,4 @@
-INSERT INTO jobs (jobkey, jobtitle, location, lastdate)
+INSERT INTO job (jobkey, jobtitle, location, lastdate)
 values  (floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
         (floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
         (floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
