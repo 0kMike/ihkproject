@@ -1,4 +1,4 @@
-package care.timelog.backend;
+package care.timelog.backend.job;
 
 import java.util.Date;
 import lombok.Getter;
@@ -15,5 +15,3 @@ public class job {
     private Date lastDate;
 
 }
-
-
