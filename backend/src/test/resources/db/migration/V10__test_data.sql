@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-INSERT INTO job (id, jobkey, jobtitle, location, lastdate)
+INSERT INTO job (id, key, title, location, lastdate)
 values  (uuid_generate_v4(), floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
         (uuid_generate_v4(), floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
         (uuid_generate_v4(), floor(random()*(99999-10000+1))+10000, 'Gesundheitspfleger', 76135, current_date),
