@@ -1,9 +1,9 @@
 package care.timelog.backend.job;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -15,6 +15,11 @@ public class jobController {
     @Autowired
     public jobController(jobService jobService) {
         this.jobService = jobService;
+    }
+
+    @GetMapping("/{location}")
+    public List<jobEntity> getProfil(@PathVariable("location") Long location) {
+        return jobService.getJobsByLocation(location);
     }
 
 }
