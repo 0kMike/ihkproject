@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class job {
+public class Job {
 
     private Long id;
     private Long key;

@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "job")
-public class jobEntity {
+public class JobEntity {
 
     @Id
     @Column(name = "id")
