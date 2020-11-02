@@ -2,6 +2,7 @@ package care.timelog.backend.job;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +16,33 @@ public class JobService {
 
         List<Job> jobList = new ArrayList<>();
 
-        for (JobEntity jobEntity: jobRepository.findAll()) {
+        for (JobEntity jobEntity : jobRepository.findAll()) {
             jobList.add(mapJobEntityToJob(jobEntity));
         }
 
-        return  jobList;
+        return jobList;
     }
 
     public Iterable<Job> findByLocation(Long location) {
 
         List<Job> jobList = new ArrayList<>();
 
-        for (JobEntity jobEntity: jobRepository.findAll()) {
+        for (JobEntity jobEntity : jobRepository.findAll()) {
             if (location.equals(jobEntity.getLocation())) {
+                jobList.add(mapJobEntityToJob(jobEntity));
+            }
+        }
+
+        return jobList;
+
+    }
+
+    public Iterable<Job> findByTitle(String title) {
+
+        List<Job> jobList = new ArrayList<>();
+
+        for (JobEntity jobEntity : jobRepository.findAll()) {
+            if (title.equals(jobEntity.getTitle())) {
                 jobList.add(mapJobEntityToJob(jobEntity));
             }
         }

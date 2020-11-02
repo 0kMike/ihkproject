@@ -21,4 +21,9 @@ public class JobController {
         return jobService.findByLocation(location);
     }
 
+    @GetMapping("/{title}")
+    public Iterable<Job> findByTitle(@PathVariable("title") String title) {
+        return jobService.findByTitle(title);
+    }
+
 }
