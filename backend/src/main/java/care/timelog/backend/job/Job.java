@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class Job {
 
-    private Long id;
+    private String id;
     private Long key;
     private String title;
     private Long location;

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/timelogcare
+    username: timelogcare
+    password: timelogcare
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
