@@ -1,11 +1,7 @@
-package care.timelog.backend.Job;
+package care.timelog.backend.job;
 
-import care.timelog.backend.job.Job;
-import care.timelog.backend.job.JobEntity;
-import care.timelog.backend.job.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +12,39 @@ public class JobService {
     private JobRepository jobRepository;
 
     public Iterable<Job> findAll() {
+
         List<Job> jobList = new ArrayList<>();
 
-        for (JobEntity entity : JobRepository.findAll()) {
-            jobList.add();
+        for (JobEntity jobEntity: jobRepository.findAll()) {
+            jobList.add(mapJobEntityToJob(jobEntity));
         }
 
-        return mitarbeiterList;
+        return  jobList;
     }
 
-    public List<JobEntity> getJobsByLocation(Long location) {
-        return null;
+    public Iterable<Job> findByLocation(Long location) {
+
+        List<Job> jobList = new ArrayList<>();
+
+        for (JobEntity jobEntity: jobRepository.findAll()) {
+            if (location.equals(jobEntity.getLocation())) {
+                jobList.add(mapJobEntityToJob(jobEntity));
+            }
+        }
+
+        return jobList;
+
+    }
+
+    private Job mapJobEntityToJob(JobEntity entity) {
+
+        Job job = new Job();
+        job.setId(entity.getId());
+        job.setKey(entity.getKey());
+        job.setTitle(entity.getTitle());
+        job.setLocation(entity.getLocation());
+        job.setLastDate(entity.getLastDate());
+
+        return job;
     }
 }

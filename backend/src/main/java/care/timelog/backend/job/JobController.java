@@ -1,10 +1,7 @@
 package care.timelog.backend.job;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import care.timelog.backend.Job.JobService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -15,13 +12,13 @@ public class JobController {
     private JobService jobService;
 
     @GetMapping
-    public Iterable<Job> getAllMitarbeiter() {
+    public Iterable<Job> findAll() {
         return jobService.findAll();
     }
 
     @GetMapping("/{location}")
-    public List<JobEntity> getProfil(@PathVariable("location") Long location) {
-        return jobService.getJobsByLocation(location);
+    public Iterable<Job> findByLocation(@PathVariable("location") Long location) {
+        return jobService.findByLocation(location);
     }
 
 }

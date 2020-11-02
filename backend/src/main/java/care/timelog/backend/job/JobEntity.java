@@ -1,9 +1,12 @@
 package care.timelog.backend.job;
 
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "job")
 public class JobEntity {
@@ -13,7 +16,7 @@ public class JobEntity {
     private Long id;
 
     @Column(name = "key")
-    private String key;
+    private Long key;
 
     @Column(name = "title")
     private String title;
@@ -23,4 +26,5 @@ public class JobEntity {
 
     @Column(name = "lastdate")
     private Date lastDate;
+
 }
