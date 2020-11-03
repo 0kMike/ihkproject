@@ -6,3 +6,11 @@ CREATE TABLE job
     location bigint       NOT NULL,
     lastdate date         NOT NULL
 );
+
+CREATE TABLE location
+(
+    zip int PRIMARY KEY ,
+    city varchar(255) NOT NULL,
+    longitude decimal NOT NULL,
+    latitude decimal NOT NULL
+)
