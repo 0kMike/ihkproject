@@ -23,26 +23,12 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(Long location) {
+    public Iterable<Job> findByLocation(Long location, ArrayList<String> titleList) {
 
         List<Job> jobList = new ArrayList<>();
 
         for (JobEntity jobEntity : jobRepository.findAll()) {
-            if (location.equals(jobEntity.getLocation())) {
-                jobList.add(mapJobEntityToJob(jobEntity));
-            }
-        }
-
-        return jobList;
-
-    }
-
-    public Iterable<Job> findByTitle(String title) {
-
-        List<Job> jobList = new ArrayList<>();
-
-        for (JobEntity jobEntity : jobRepository.findAll()) {
-            if (title.equals(jobEntity.getTitle())) {
+            if (location.equals(jobEntity.getLocation()) && (titleList.size() > 0 && titleList.contains(jobEntity.getTitle()))) {
                 jobList.add(mapJobEntityToJob(jobEntity));
             }
         }
