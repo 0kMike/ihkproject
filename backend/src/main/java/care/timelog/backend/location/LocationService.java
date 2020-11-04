@@ -1,5 +1,6 @@
 package care.timelog.backend.location;
 
+import care.timelog.backend.job.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,20 @@ public class LocationService {
         }
 
         return locationList;
+    }
+
+    public Location getCoordinates(Job job) {
+
+        Location location = new Location();
+
+        for (LocationEntity locationEntity : locationRepository.findAll()) {
+            if (job.getZip().equals(locationEntity.getZip())) {
+                return mapLocationEntityToLocation(locationEntity);
+            }
+        }
+
+        return location;
+
     }
 
     private Location mapLocationEntityToLocation(LocationEntity entity) {
