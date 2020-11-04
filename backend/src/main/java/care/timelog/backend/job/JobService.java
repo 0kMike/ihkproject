@@ -43,7 +43,7 @@ public class JobService {
         job.setId(entity.getId());
         job.setKey(entity.getKey());
         job.setTitle(entity.getTitle());
-        job.setLocation(entity.getLocation());
+        job.setZip(entity.getLocation());
         job.setLastDate(entity.getLastDate());
 
         return job;
