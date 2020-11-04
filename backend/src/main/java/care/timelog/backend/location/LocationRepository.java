@@ -1,8 +1,8 @@
-package care.timelog.backend.job;
+package care.timelog.backend.location;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface JobRepository extends CrudRepository<JobEntity, Long> {
+public interface LocationRepository extends CrudRepository<LocationEntity, Long> {
 }

@@ -19,8 +19,10 @@ public class JobController {
     }
 
     @GetMapping("/{location}")
-    public Iterable<Job> findByLocation(@PathVariable("location") Long location, @RequestParam(name = "title", required = false) ArrayList<String> titleList) {
-        return jobService.findByLocation(location, titleList);
+    public Iterable<Job> findByLocation(@PathVariable("location") Long location,
+                                        @RequestParam(name = "title", required = false) ArrayList<String> titleList,
+                                        @RequestParam(name = "radius", required = true) Long radius) {
+        return jobService.findByLocation(location, titleList, radius);
     }
 
 }

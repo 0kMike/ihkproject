@@ -23,7 +23,7 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(Long location, ArrayList<String> titleList) {
+    public Iterable<Job> findByLocation(Long location, ArrayList<String> titleList, Long radius) {
 
         List<Job> jobList = new ArrayList<>();
 
