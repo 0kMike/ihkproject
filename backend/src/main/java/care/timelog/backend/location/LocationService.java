@@ -1,6 +1,6 @@
 package care.timelog.backend.location;
 
-import care.timelog.backend.job.Job;
+import care.timelog.backend.exception.ZipCodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,18 +24,15 @@ public class LocationService {
         return locationList;
     }
 
-    public Location getCoordinates(Job job) {
-
-        Location location = new Location();
+    public Location findByZip(Integer zip) throws ZipCodeNotFoundException {
 
         for (LocationEntity locationEntity : locationRepository.findAll()) {
-            if (job.getZip().equals(locationEntity.getZip())) {
+            if (locationEntity.getZip().equals(zip)) {
                 return mapLocationEntityToLocation(locationEntity);
             }
         }
 
-        return location;
-
+        throw new ZipCodeNotFoundException("No location set could be found for the code " + zip + ".");
     }
 
     private Location mapLocationEntityToLocation(LocationEntity entity) {
