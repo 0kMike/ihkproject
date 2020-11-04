@@ -21,8 +21,11 @@ public class JobEntity {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "location")
-    private Long location;
+    @Column(name = "longitude")
+    private Double longitude;
+
+    @Column(name = "latitude")
+    private Double latitude;
 
     @Column(name = "lastdate")
     private Date lastDate;

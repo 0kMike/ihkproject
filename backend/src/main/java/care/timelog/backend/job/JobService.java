@@ -23,12 +23,12 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(Long location, ArrayList<String> titleList, Long radius) {
+    public Iterable<Job> findByLocation(Long zip, ArrayList<String> titleList, Long radius) {
 
         List<Job> jobList = new ArrayList<>();
 
         for (JobEntity jobEntity : jobRepository.findAll()) {
-            if (location.equals(jobEntity.getLocation()) && (titleList.size() > 0 && titleList.contains(jobEntity.getTitle()))) {
+            if (titleList.size() > 0 && titleList.contains(jobEntity.getTitle())) {
                 jobList.add(mapJobEntityToJob(jobEntity));
             }
         }
@@ -43,7 +43,8 @@ public class JobService {
         job.setId(entity.getId());
         job.setKey(entity.getKey());
         job.setTitle(entity.getTitle());
-        job.setZip(entity.getLocation());
+        job.setLongitude(entity.getLongitude());
+        job.setLatitude(entity.getLatitude());
         job.setLastDate(entity.getLastDate());
 
         return job;
