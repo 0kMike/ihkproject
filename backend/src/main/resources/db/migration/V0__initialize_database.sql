@@ -5,6 +5,7 @@ CREATE TABLE job
     title     varchar(255) NOT NULL,
     longitude decimal      NOT NULL,
     latitude  decimal      NOT NULL,
+    firstDate date         NOT NULL,
     lastdate  date         NOT NULL
 );
 
