@@ -14,6 +14,7 @@ public class JobService {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
     private LocationService locationService;
 
     public Iterable<Job> findAll() {
@@ -33,7 +34,6 @@ public class JobService {
         List<Job> jobList = new ArrayList<>();
 
         for (JobEntity jobEntity : jobRepository.findAll()) {
-
             double distanceInKm = Math.sqrt(Math.pow(searchLocation.getLongitude() - jobEntity.getLongitude(), 2) + Math.pow(searchLocation.getLatitude() - jobEntity.getLatitude(), 2)) * 111;
 
             if (titleList.size() > 0 && titleList.contains(jobEntity.getTitle())) {

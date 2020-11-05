@@ -32,7 +32,7 @@ public class LocationService {
             }
         }
 
-        throw new ZipCodeNotFoundException("No location set could be found for the code " + zip + ".");
+        throw new ZipCodeNotFoundException("Für die angegebene Postleitzahl " + zip + " existiert kein Postleitzahlgebiet.");
     }
 
     private Location mapLocationEntityToLocation(LocationEntity entity) {
