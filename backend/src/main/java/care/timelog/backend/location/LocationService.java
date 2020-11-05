@@ -24,7 +24,7 @@ public class LocationService {
         return locationList;
     }
 
-    public Location findByZip(Integer zip) throws ZipCodeNotFoundException {
+    public Location getLocationFromZip(Integer zip) throws ZipCodeNotFoundException {
 
         for (LocationEntity locationEntity : locationRepository.findAll()) {
             if (locationEntity.getZip().equals(zip)) {
