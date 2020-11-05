@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class Location {
 
-    private Integer zip;
+    private String zip;
     private String city;
     private double longitude;
     private double latitude;

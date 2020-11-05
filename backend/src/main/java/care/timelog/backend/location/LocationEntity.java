@@ -13,7 +13,7 @@ public class LocationEntity {
 
     @Id
     @Column(name = "zip")
-    private Integer zip;
+    private String zip;
 
     @Column(name = "city")
     private String city;

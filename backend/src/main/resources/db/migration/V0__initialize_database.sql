@@ -10,7 +10,7 @@ CREATE TABLE job
 
 CREATE TABLE location
 (
-    zip       int PRIMARY KEY,
+    zip       varchar(5) PRIMARY KEY,
     city      varchar(255) NOT NULL,
     longitude decimal      NOT NULL,
     latitude  decimal      NOT NULL

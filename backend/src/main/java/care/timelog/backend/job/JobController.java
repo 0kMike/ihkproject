@@ -20,7 +20,7 @@ public class JobController {
     }
 
     @GetMapping("/{zip}")
-    public Iterable<Job> findByLocation(@PathVariable("zip") Integer zip,
+    public Iterable<Job> findByLocation(@PathVariable("zip") String zip,
                                         @RequestParam(name = "title") ArrayList<String> titleList,
                                         @RequestParam(name = "radius") Integer radius) throws ZipCodeNotFoundException {
         return jobService.findByLocation(zip, titleList, radius);

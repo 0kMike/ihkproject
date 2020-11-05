@@ -28,7 +28,7 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(Integer zip, ArrayList<String> titleList, Integer searchRadius) throws ZipCodeNotFoundException {
+    public Iterable<Job> findByLocation(String zip, ArrayList<String> titleList, Integer searchRadius) throws ZipCodeNotFoundException {
 
         Location searchLocation = locationService.getLocationFromZip(zip);
         List<Job> jobList = new ArrayList<>();
