@@ -1,4 +1,4 @@
-INSERT IN'TO lo'cation (zip, city, longitude, latitude)
+INSERT INTO location (zip, city, longitude, latitude)
 values  ('01067', 'Dresden', 13.7210676148814, 51.0600336463379),
         ('01069', 'Dresden', 13.7389066401609, 51.039558876083),
         ('01097', 'Dresden', 13.7439674110642, 51.0667452412037),
