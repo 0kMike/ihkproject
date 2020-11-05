@@ -1,5 +1,8 @@
 package care.timelog.backend.job;
 
+import care.timelog.backend.exception.ZipCodeNotFoundException;
+import care.timelog.backend.location.Location;
+import care.timelog.backend.location.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +14,7 @@ public class JobService {
 
     @Autowired
     private JobRepository jobRepository;
+    private LocationService locationService;
 
     public Iterable<Job> findAll() {
 
@@ -23,18 +27,23 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(Long zip, ArrayList<String> titleList, Long radius) {
+    public Iterable<Job> findByLocation(Integer zip, ArrayList<String> titleList, Integer searchRadius) throws ZipCodeNotFoundException {
 
+        Location searchLocation = locationService.getLocationFromZip(zip);
         List<Job> jobList = new ArrayList<>();
 
         for (JobEntity jobEntity : jobRepository.findAll()) {
+
+            double distanceInKm = Math.sqrt(Math.pow(searchLocation.getLongitude() - jobEntity.getLongitude(), 2) + Math.pow(searchLocation.getLatitude() - jobEntity.getLatitude(), 2)) * 111;
+
             if (titleList.size() > 0 && titleList.contains(jobEntity.getTitle())) {
-                jobList.add(mapJobEntityToJob(jobEntity));
+                if (distanceInKm <= searchRadius) {
+                    jobList.add(mapJobEntityToJob(jobEntity));
+                }
             }
         }
 
         return jobList;
-
     }
 
     private Job mapJobEntityToJob(JobEntity entity) {

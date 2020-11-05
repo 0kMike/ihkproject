@@ -1,5 +1,6 @@
 package care.timelog.backend.job;
 
+import care.timelog.backend.exception.ZipCodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +19,11 @@ public class JobController {
         return jobService.findAll();
     }
 
-    @GetMapping("/{location}")
-    public Iterable<Job> findByLocation(@PathVariable("location") Long location,
-                                        @RequestParam(name = "title", required = false) ArrayList<String> titleList,
-                                        @RequestParam(name = "radius", required = true) Long radius) {
-        return jobService.findByLocation(location, titleList, radius);
+    @GetMapping("/{zip}")
+    public Iterable<Job> findByLocation(@PathVariable("zip") Integer zip,
+                                        @RequestParam(name = "title") ArrayList<String> titleList,
+                                        @RequestParam(name = "radius") Integer radius) throws ZipCodeNotFoundException {
+        return jobService.findByLocation(zip, titleList, radius);
     }
 
 }
