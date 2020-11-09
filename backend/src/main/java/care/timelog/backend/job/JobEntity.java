@@ -31,6 +31,9 @@ public class JobEntity {
     @Column(name = "latitude")
     private Double latitude;
 
+    @Column(name = "firstdate")
+    private Date firstDate;
+
     @Column(name = "lastdate")
     private Date lastDate;
 

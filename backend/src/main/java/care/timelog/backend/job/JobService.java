@@ -54,6 +54,7 @@ public class JobService {
         job.setTitle(entity.getTitle());
         job.setLongitude(entity.getLongitude());
         job.setLatitude(entity.getLatitude());
+        job.setFirstDate(entity.getFirstDate());
         job.setLastDate(entity.getLastDate());
 
         return job;
