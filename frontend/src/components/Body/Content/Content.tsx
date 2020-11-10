@@ -14,23 +14,15 @@ interface IContentProps {
 
 function Content(props: IContentProps) {
 
-  let headerCount: number = 1;
-
-  const increaseHeaderCount = () => {
-    headerCount++;
-  }
-
   return (
     <main className={styles.content}>
-      <h2 className={styles.header}>{headerCount}. Fachkraft auswählen:</h2>
-      {increaseHeaderCount()}
+      <h2 className={styles.header}>1. Fachkraft auswählen:</h2>
       <SearchTagSelection
         activeSearchTags={props.activeSearchTags}
         toggleActiveSearchTag={props.toggleActiveSearchTag}/>
-      <h2 className={styles.header}>{headerCount}. Postleitzahl & Radius:</h2>
-      {increaseHeaderCount()}
+      <h2 className={styles.header}>2. Postleitzahl & Radius:</h2>
       <SearchRegion/>
-      <h2 className={styles.header}>{headerCount}. Ergebnis:</h2>
+      <h2 className={styles.header}>3. Ergebnis:</h2>
       <SearchResult/>
       <SearchButton
         isButtonActive={props.isSearchButtonActive}
