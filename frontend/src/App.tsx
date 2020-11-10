@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import Header from "./components/NavigationBar/NavigationBar";
+import Header from './components/NavigationBar/NavigationBar';
 import Body from './components/Body/Body';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
 
@@ -25,15 +26,21 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header/>
-      <Body
-        activeSearchTags={activeSearchTags}
-        isSearchButtonActive={isSearchButtonActive}
-        toggleActiveSearchTag={toggleActiveSearchTag}
-        initiateSearch={initiateSearch}
-      />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <div className="App">
+            <Header/>
+            <Body
+              activeSearchTags={activeSearchTags}
+              isSearchButtonActive={isSearchButtonActive}
+              toggleActiveSearchTag={toggleActiveSearchTag}
+              initiateSearch={initiateSearch}
+            />
+          </div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
