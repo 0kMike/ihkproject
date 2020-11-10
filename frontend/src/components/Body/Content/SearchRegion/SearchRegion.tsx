@@ -1,14 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styles from './SearchRegion.module.css';
-import {type} from "os";
 
 interface ISearchRegionSelection {
-
+  setZipCode(zip: string): void;
+  zipCode: string;
 }
 
 function SearchRegion(props: ISearchRegionSelection) {
-
-  const [zipCode, setZipCode] = useState<string>('');
+  const {setZipCode, zipCode} = props;
 
   useEffect(() => {
       rangeNumber.current.value = "25 km";
@@ -45,11 +44,13 @@ function SearchRegion(props: ISearchRegionSelection) {
     <div className={styles.searchRegionSelection}>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Postleitzahl:</p>
-        <input type="text" className={errors.isNumber || errors.isLength ? styles.input : styles.inputError} onChange={zipCodeInputChangeHandler} maxLength={5} ref={zipCodeInput}/>
+        <input type="text" minLength={5} className={errors.isNumber && errors.isLength ? styles.input : styles.inputError}
+               onChange={zipCodeInputChangeHandler} maxLength={5} ref={zipCodeInput}/>
       </section>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Radius:</p>
-        <input type="range" className={styles.radius} min="10" max="50" step="5" defaultValue="25" onChange={radiusChangeHandler}/>
+        <input type="range" className={styles.radius} min="10" max="50" step="5" defaultValue="25"
+               onChange={radiusChangeHandler}/>
         <input type="text" className={styles.rangeNumber} ref={rangeNumber} disabled/>
       </section>
     </div>

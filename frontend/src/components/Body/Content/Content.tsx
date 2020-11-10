@@ -10,23 +10,29 @@ interface IContentProps {
   toggleActiveSearchTag(SearchTag: string): void;
   isSearchButtonActive: boolean;
   initiateSearch(): void;
+  setZipCode(zip: string): void;
+  zipCode: string;
 }
 
 function Content(props: IContentProps) {
+  const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode} = props;
+
 
   return (
     <main className={styles.content}>
       <h2 className={styles.header}>1. Fachkraft auswählen:</h2>
       <SearchTagSelection
-        activeSearchTags={props.activeSearchTags}
-        toggleActiveSearchTag={props.toggleActiveSearchTag}/>
+        activeSearchTags={activeSearchTags}
+        toggleActiveSearchTag={toggleActiveSearchTag}/>
       <h2 className={styles.header}>2. Postleitzahl & Radius:</h2>
-      <SearchRegion/>
+      <SearchRegion
+        setZipCode={setZipCode}
+        zipCode={zipCode}/>
       <h2 className={styles.header}>3. Ergebnis:</h2>
       <SearchResult/>
       <SearchButton
-        isButtonActive={props.isSearchButtonActive}
-        buttonAction={props.initiateSearch}
+        isButtonActive={isSearchButtonActive}
+        buttonAction={initiateSearch}
       />
     </main>
   )

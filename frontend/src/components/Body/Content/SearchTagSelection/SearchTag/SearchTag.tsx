@@ -4,25 +4,27 @@ import styles from './SearchTag.module.css';
 interface ISearchTag {
   tag: string;
   isActive: boolean;
+
   toggleActiveSearchTag(searchTag: string): void;
 }
 
 function SearchTag(props: ISearchTag) {
+  const {tag, isActive, toggleActiveSearchTag} = props;
 
   const searchTagClickHandler = () => {
-    props.toggleActiveSearchTag(props.tag)
+    toggleActiveSearchTag(tag)
   }
 
-  const searchtagStyle = props.isActive ? styles.searchTagActive : styles.searchTag;
-  const iconStyle = props.isActive ? styles.plusActive : styles.plus;
+  const searchtagStyle = isActive ? styles.searchTagActive : styles.searchTag;
+  const iconStyle = isActive ? styles.plusActive : styles.plus;
 
   return (
-        <main className={searchtagStyle} onClick={searchTagClickHandler}>
-          <div className={iconStyle}/>
-          <div>
-            {props.tag}
-          </div>
-        </main>
+    <main className={searchtagStyle} onClick={searchTagClickHandler}>
+      <div className={iconStyle}/>
+      <div>
+        {tag}
+      </div>
+    </main>
   )
 }
 

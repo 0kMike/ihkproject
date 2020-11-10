@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 function App() {
 
   const [activeSearchTags, setActiveSearchTags] = useState<string[]>([])
-  const [zipCode, setZipCode] = useState<number | null>(null);
+  const [zipCode, setZipCode] = useState<string>("");
 
   const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode != null;
 
@@ -36,6 +36,8 @@ function App() {
               isSearchButtonActive={isSearchButtonActive}
               toggleActiveSearchTag={toggleActiveSearchTag}
               initiateSearch={initiateSearch}
+              setZipCode={setZipCode}
+              zipCode={zipCode}
             />
           </div>
         </Route>

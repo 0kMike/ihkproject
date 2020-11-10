@@ -39,6 +39,27 @@
   outline: none;
 }
 
+.inputError {
+  background-color: var(--color-background-element);
+  border-color: var(--color-input-element);
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  color: var(--color-input-element);
+  padding: 5px;
+  width: 50px;
+  font-size: 1.1em;
+  font-family: var(--font-family-serif);
+  box-shadow: 1px 1px 1px var(--color-input-element);
+}
+
+.inputError:focus {
+  border-color: var(--color-input-element);
+  border-radius: 2px;
+  border-style: solid;
+  outline: none;
+}
+
 .radius {
   margin-top: 0;
 }
