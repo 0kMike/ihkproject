@@ -9,6 +9,7 @@
   --color-black: #1f1d1f;
   --color-green: #378273;
   --color-teal: #81a7a8;
+  --color-red: #ffaaaa;
 
   /*used colors*/
   --color-background: var(--color-merino);
@@ -19,6 +20,8 @@
   --color-text-header: var(--color-grey);
   --color-text-invert: var(--color-white);
   --color-input-element: var(--color-grey-variant);
+  --color-validation-positive: var(--color-blue);
+  --color-validation-negative: var(--color-red);
 
   /*used font*/
   --font-family-serif: 'Roboto Slab', serif;

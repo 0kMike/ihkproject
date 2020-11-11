@@ -45,7 +45,7 @@
   border-radius: 2px;
   border-style: solid;
   border-width: 1px;
-  color: var(--color-input-element);
+  color: var(--color-validation-negative);
   padding: 5px;
   width: 50px;
   font-size: 1.1em;
