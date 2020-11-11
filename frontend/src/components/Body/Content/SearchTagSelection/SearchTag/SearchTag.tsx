@@ -15,7 +15,7 @@ function SearchTag(props: ISearchTag) {
     toggleActiveSearchTag(tag)
   }
 
-  const searchtagStyle = isActive ? styles.searchTagActive : styles.searchTag;
+  const searchtagStyle = isActive ? styles.searchTagActive : styles.searchTagInactive;
   const iconStyle = isActive ? styles.plusActive : styles.plus;
 
   return (

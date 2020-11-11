@@ -1,6 +1,6 @@
-.searchTag {
+.searchTagInactive {
   align-items: center;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-alt);
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -16,7 +16,7 @@
 
 .searchTagActive {
   align-items: center;
-  background-color: var(--color-accent-alt);
+  background-color: var(--color-accent);
   border-radius: 10px;
   color: var(--color-text-invert);
   cursor: pointer;
