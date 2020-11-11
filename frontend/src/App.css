@@ -1,26 +1,22 @@
 :root {
-  --color-white: #fefcfe;
-  --color-white-alt: #f7f6f7;
-  --color-merino: #f3ecdc;
-  --color-blue: #d2e6e5;
-  --color-blue-alt: #9ab1b1;
-  --color-grey: #4a494a;
-  --color-grey-variant: #858585;
-  --color-black: #1f1d1f;
-  --color-green: #378273;
-  --color-teal: #81a7a8;
-  --color-red: #ffaaaa;
+  --color-white: rgba(255, 255, 255, 1);
+  --color-beige: rgba(239, 232, 211, 1);
+  --color-grey: rgba(105, 105, 105, 1);
+  --color-grey-light: rgba(245, 245, 245, 1);
+  --color-black: rgba(27, 27, 27, 1);
+  --color-green-full: rgba(104, 190, 189, 1);
+  --color-green-light: rgba(104, 190, 189, 0.5);
+  --color-red: rgba(255, 170, 170, 1);
 
   /*used colors*/
-  --color-background: var(--color-merino);
+  --color-background: var(--color-beige);
   --color-background-element: var(--color-white);
-  --color-accent: var(--color-blue);
-  --color-accent-alt: var(--color-green);
+  --color-accent: var(--color-green-full);
+  --color-accent-alt: var(--color-green-light);
   --color-text: var(--color-black);
   --color-text-header: var(--color-grey);
   --color-text-invert: var(--color-white);
-  --color-input-element: var(--color-grey-variant);
-  --color-validation-positive: var(--color-blue);
+  --color-input-element: var(--color-grey-light);
   --color-validation-negative: var(--color-red);
 
   /*used font*/
