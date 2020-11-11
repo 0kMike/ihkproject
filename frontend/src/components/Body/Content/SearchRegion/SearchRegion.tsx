@@ -44,7 +44,7 @@ function SearchRegion(props: ISearchRegionSelection) {
     <div className={styles.searchRegionSelection}>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Postleitzahl:</p>
-        <input type="text" minLength={5} className={errors.isNumber && errors.isLength ? styles.input : styles.inputError}
+        <input type="text" minLength={5} className={errors.isNumber && errors.isLength ? styles.zipInput : styles.zipInputError}
                onChange={zipCodeInputChangeHandler} maxLength={5} ref={zipCodeInput}/>
       </section>
       <section className={styles.zip}>

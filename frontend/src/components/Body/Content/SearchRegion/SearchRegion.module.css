@@ -19,7 +19,7 @@
   margin: 10px;
 }
 
-.input {
+.zipInput {
   background-color: var(--color-background-element);
   border-color: var(--color-input-element);
   border-radius: 2px;
@@ -31,14 +31,14 @@
   width: 50px;
 }
 
-.input:focus {
+.zipInput:focus {
   border-color: var(--color-input-element);
   border-radius: 2px;
   border-style: solid;
   outline: none;
 }
 
-.inputError {
+.zipInputError {
   background-color: var(--color-background-element);
   border-color: var(--color-input-element);
   border-radius: 2px;
@@ -50,11 +50,19 @@
   width: 50px;
 }
 
-.inputError:focus {
+.zipInputError:focus {
   border-color: var(--color-validation-negative);
   border-radius: 2px;
   border-style: solid;
   outline: none;
+}
+
+.zipInputError:focus::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-color: orangered;
+  /*background-image: url("../../assets/img/warning.svg");*/
 }
 
 .radius {
