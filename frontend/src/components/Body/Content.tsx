@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Body.module.css';
-import Content from "./Content/Content";
+import styles from './Content.module.css';
+import SearchForm from "./SearchForm/SearchForm";
 
 interface IBodyProps {
   activeSearchTags: string[];
@@ -11,13 +11,13 @@ interface IBodyProps {
   zipCode: string
 }
 
-function Body(props: IBodyProps) {
+function Content(props: IBodyProps) {
   const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode} = props;
 
   return (
     <main className={styles.body}>
       <h1 className={styles.header}>Fachpersonal einstellen</h1>
-      <Content
+      <SearchForm
         activeSearchTags={activeSearchTags}
         toggleActiveSearchTag={toggleActiveSearchTag}
         isSearchButtonActive={isSearchButtonActive}
@@ -29,4 +29,4 @@ function Body(props: IBodyProps) {
   )
 }
 
-export default Body;
+export default Content;

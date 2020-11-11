@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Header from './components/NavigationBar/NavigationBar';
-import Body from './components/Body/Body';
+import Content from './components/Body/Content';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         <Route exact path="/">
           <div className="App">
             <Header/>
-            <Body
+            <Content
               activeSearchTags={activeSearchTags}
               isSearchButtonActive={isSearchButtonActive}
               toggleActiveSearchTag={toggleActiveSearchTag}

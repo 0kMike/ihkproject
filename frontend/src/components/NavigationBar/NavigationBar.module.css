@@ -3,47 +3,15 @@
   background-color: var(--color-element-background);
   color: var(--color-text-header);
   display: flex;
-  height: 50px;
-  justify-content: flex-end;
+  height: 80px;
+  justify-content: flex-start;
   width: 100%;
+  padding: 0 5%;
 }
 
-.menu{
-  margin: 0;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.item {
-  margin: 0;
-}
-
-.itemColored {
-  margin: 0 5px;
-  color: var(--color-green-light)
-}
-
-.seperator {
-  background-color: var(--color-element-background);
-  width: 1px;
-  height: 80%;
-  margin: 0 10px 0 0;
-}
-
-/*TODO fix navigationbar seperator*/
-.item::after {
-  content: "";
-  background-color: var(--color-element-border);
-  width: 1px;
-  height: 50px;
-  margin: 0 5px;
-}
-
-.profilePicture {
-  margin: 0 10px 0 -5px;
-  padding: 0;
-  height: 20px;
+.logo {
+  height: 32px;
   background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0;
 }

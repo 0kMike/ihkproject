@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Content.module.css';
+import styles from './SearchForm.module.css';
 import SearchTagSelection from './SearchTagSelection/SearchTagSelection';
 import SearchRegion from './SearchRegion/SearchRegion';
 import SearchResult from './SearchResult/SearchResult';
@@ -14,7 +14,7 @@ interface IContentProps {
   zipCode: string;
 }
 
-function Content(props: IContentProps) {
+function SearchForm(props: IContentProps) {
   const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode} = props;
 
 
@@ -38,4 +38,4 @@ function Content(props: IContentProps) {
   )
 }
 
-export default Content;
+export default SearchForm;
