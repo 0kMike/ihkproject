@@ -28,22 +28,38 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(String zip, ArrayList<String> titleList, Integer searchRadius) throws ZipCodeNotFoundException {
-
-        Location searchLocation = locationService.getLocationFromZip(zip);
+    public Iterable<Job> findByLocation(String zip, ArrayList<String> titleList, int searchRadius) throws ZipCodeNotFoundException {
         List<Job> jobList = new ArrayList<>();
 
-        for (JobEntity jobEntity : jobRepository.findAll()) {
-            double distanceInKm = Math.sqrt(Math.pow(searchLocation.getLongitude() - jobEntity.getLongitude(), 2) + Math.pow(searchLocation.getLatitude() - jobEntity.getLatitude(), 2)) * 111;
+        Location zipLocation = locationService.getLocationFromZip(zip);
+        Coordinate searchLocation = new Coordinate(zipLocation.getLongitude(), zipLocation.getLatitude());
 
-            if (titleList.size() > 0 && titleList.contains(jobEntity.getTitle())) {
-                if (distanceInKm <= searchRadius) {
-                    jobList.add(mapJobEntityToJob(jobEntity));
-                }
+        for (JobEntity jobEntity : jobRepository.findAllByTitleIn(titleList)) {
+
+            Coordinate jobCoordinate = new Coordinate(jobEntity.getLongitude(), jobEntity.getLatitude());
+            double distance = calculateLinearDistanceInKm(searchLocation, jobCoordinate);
+
+            if (isWithinSearchRadius(searchRadius, distance)) {
+                jobList.add(mapJobEntityToJob(jobEntity));
             }
         }
 
         return jobList;
+    }
+
+    private boolean isWithinSearchRadius(int searchRadius, double distance) {
+        return distance <= searchRadius;
+    }
+
+    private double calculateLinearDistanceInKm(Coordinate searchLocation, Coordinate jobLocation) {
+        double longitudeDif = searchLocation.getLongitude() - jobLocation.getLongitude();
+        double latitudeDif = searchLocation.getLatitude() - jobLocation.getLatitude();
+
+        return getLinearDistanceInKm(longitudeDif, latitudeDif);
+    }
+
+    private double getLinearDistanceInKm(double longitudeDif, double latitudeDif) {
+        return Math.sqrt(Math.pow(longitudeDif, 2) + Math.pow(latitudeDif, 2)) * 111;
     }
 
     private Job mapJobEntityToJob(JobEntity entity) {
@@ -52,8 +68,6 @@ public class JobService {
         job.setId(entity.getId());
         job.setKey(entity.getKey());
         job.setTitle(entity.getTitle());
-        job.setLongitude(entity.getLongitude());
-        job.setLatitude(entity.getLatitude());
         job.setFirstDate(entity.getFirstDate());
         job.setLastDate(entity.getLastDate());
 

@@ -12,8 +12,6 @@ public class Job {
     private String id;
     private Long key;
     private String title;
-    private Double longitude;
-    private Double latitude;
     private Date firstDate;
     private Date lastDate;
 
