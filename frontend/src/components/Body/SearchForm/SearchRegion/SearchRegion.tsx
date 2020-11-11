@@ -40,7 +40,6 @@ function SearchRegion(props: ISearchRegionSelection) {
         <p className={styles.inputHeader}>Postleitzahl:</p>
         <input type="text" className={validate(zipCode) ? styles.zipInput : styles.zipInputError}
                onChange={zipCodeInputChangeHandler} maxLength={5} ref={zipCodeInput}/>
-               <div className={validate(zipCode) ? styles.validationIconValid : styles.validationIconInvalid}/>
       </section>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Radius:</p>
