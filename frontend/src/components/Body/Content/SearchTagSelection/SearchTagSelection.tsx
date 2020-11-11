@@ -10,8 +10,6 @@ interface ISearchCriteria {
 
 function SearchTagSelection(props: ISearchCriteria) {
 
-  console.log(props.activeSearchTags)
-
   return (
     <div className={styles.seachTagSelection}>
       {

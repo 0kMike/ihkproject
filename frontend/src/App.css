@@ -21,8 +21,8 @@
   --color-validation-negative: var(--color-red);
 
   /*used font*/
-  --font-family-serif: 'Roboto Slab', serif;
-  --font-family-sans-serif: 'Roboto', sans-serif;
+  --font-family-serif: 'Segoe UI', serif;
+  --font-family-sans-serif: 'Segoe UI', sans-serif;
 }
 
 .App {

@@ -10,7 +10,7 @@ function App() {
   const [zipCode, setZipCode] = useState<string>("");
   const [searchRadius, setSearchRadius] = useState<number>(25);
 
-  const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode != null;
+  const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode != "";
 
   const toggleActiveSearchTag = (searchTag: string) => {
     let newActiveSearchTags = [...activeSearchTags];

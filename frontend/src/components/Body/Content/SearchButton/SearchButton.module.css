@@ -1,7 +1,7 @@
 .searchButtonInactive {
   color: var(--color-text-invert);
   align-self: flex-end;
-  background-color: var(--color-accent-alt);
+  background-color: var(--color-element-inactive);
   border-radius: 6px;
   border-style: none;
   cursor: pointer;

@@ -7,15 +7,16 @@ interface ISearchButton {
 }
 
 function SearchButton(props: ISearchButton) {
+  const {isButtonActive, buttonAction} = props;
 
   const buttonClickHandler = () => {
-    props.buttonAction();
+    buttonAction();
   }
 
   return (
     <>
       {
-        props.isButtonActive ?
+        isButtonActive ?
           <input type="button" className={styles.searchButtonActive} value="Suchen" onClick={buttonClickHandler}/>
           :
           <input type="button" className={styles.searchButtonInactive} value="Suchen"/>
