@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './SearchRegion.module.css';
 
 interface ISearchRegionSelection {
@@ -17,7 +17,7 @@ function SearchRegion(props: ISearchRegionSelection) {
   const zipCodeInput = useRef<any>();
   const rangeNumber = useRef<any>();
 
-  const zipCodeInputChangeHandler = (event: any) => {
+  const zipCodeInputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let validation = validate(event.target.value);
 
     if (validation.isLength && validation.isNumber) {
