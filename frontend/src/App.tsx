@@ -8,6 +8,7 @@ function App() {
 
   const [activeSearchTags, setActiveSearchTags] = useState<string[]>([])
   const [zipCode, setZipCode] = useState<string>("");
+  const [searchRadius, setSearchRadius] = useState<number>(25);
 
   const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode != null;
 
