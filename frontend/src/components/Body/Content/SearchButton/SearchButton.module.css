@@ -1,7 +1,8 @@
 .searchButtonInactive {
+  color: var(--color-text-invert);
   align-self: flex-end;
   background-color: var(--color-accent-alt);
-  border-radius: 10px;
+  border-radius: 6px;
   border-style: none;
   cursor: pointer;
   font-family: var(--font-family-serif);
@@ -21,7 +22,7 @@
 .searchButtonActive {
   align-self: flex-end;
   background-color: var(--color-accent);
-  border-radius: 10px;
+  border-radius: 6px;
   border-style: none;
   color: var(--color-text-invert);
   cursor: pointer;

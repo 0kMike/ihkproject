@@ -17,35 +17,30 @@ function SearchRegion(props: ISearchRegionSelection) {
   const zipCodeInput = useRef<any>();
   const rangeNumber = useRef<any>();
 
-  const zipCodeInputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let validation = validate(event.target.value);
+  function validate(zip: string) {
+    return zip && zip.length === 5 && /^\d+$/.test(zip);
+  }
 
-    if (validation.isLength && validation.isNumber) {
+  const zipCodeInputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    if (validate(event.target.value)) {
       setZipCode(event.target.value);
     } else {
       setZipCode('');
     }
   }
 
-  function validate(zip: string) {
-    return {
-      isNumber: /^\d+$/.test(zip),
-      isLength: zip && zip.length === 5,
-    };
-  }
-
   const radiusChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     rangeNumber.current.value = event.target.value + " km";
   }
-
-  const errors = validate(zipCode)
 
   return (
     <div className={styles.searchRegionSelection}>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Postleitzahl:</p>
-        <input type="text" minLength={5} className={errors.isNumber && errors.isLength ? styles.zipInput : styles.zipInputError}
+        <input type="text" className={validate(zipCode) ? styles.zipInput : styles.zipInputError}
                onChange={zipCodeInputChangeHandler} maxLength={5} ref={zipCodeInput}/>
+               <div className={validate(zipCode) ? styles.validationIconValid : styles.validationIconInvalid}/>
       </section>
       <section className={styles.zip}>
         <p className={styles.inputHeader}>Radius:</p>

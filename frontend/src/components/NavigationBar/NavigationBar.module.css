@@ -1,6 +1,6 @@
 .navigationBar {
   align-items: center;
-  background-color: var(--color-background-element);
+  background-color: var(--color-element-background);
   color: var(--color-text-header);
   display: flex;
   height: 50px;
@@ -26,7 +26,7 @@
 }
 
 .seperator {
-  background-color: var(--color-background-element);
+  background-color: var(--color-element-background);
   width: 1px;
   height: 80%;
   margin: 0 10px 0 0;
@@ -35,7 +35,7 @@
 /*TODO fix navigationbar seperator*/
 .item::after {
   content: "";
-  background-color: var(--color-input-element);
+  background-color: var(--color-element-border);
   width: 1px;
   height: 50px;
   margin: 0 5px;

@@ -16,11 +16,10 @@ function SearchTag(props: ISearchTag) {
   }
 
   const searchtagStyle = isActive ? styles.searchTagActive : styles.searchTagInactive;
-  const iconStyle = isActive ? styles.plusActive : styles.plus;
 
   return (
     <main className={searchtagStyle} onClick={searchTagClickHandler}>
-      <div className={iconStyle}/>
+      <div className={styles.plusActive}/>
       <div>
         {tag}
       </div>
