@@ -5,7 +5,7 @@ import profile from '../../assets/img/profile.svg';
 interface INavigationBarProps {
 
 }
-
+// TODO remove navitems and add timelog care logo floating left
 function NavigationBar(props: INavigationBarProps) {
   return (
     <header className={styles.navigationBar}>
