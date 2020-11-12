@@ -3,12 +3,15 @@ import './App.css';
 import Header from './components/NavigationBar/NavigationBar';
 import Content from './components/Body/Content';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {getJobs} from "./provider/DataProvider";
+import {IJob} from "./interfaces/IJob";
 
 function App() {
 
   const [activeSearchTags, setActiveSearchTags] = useState<string[]>([])
   const [zipCode, setZipCode] = useState<string>("");
   const [searchRadius, setSearchRadius] = useState<number>(25);
+  const [searchResult, setSearchResult] = useState<IJob[]>([]);
 
   const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode !== "";
 
@@ -22,8 +25,13 @@ function App() {
     }
   }
 
+  async function getMitarbeiter() {
+    let response = await getJobs(zipCode, activeSearchTags, searchRadius);
+    setSearchResult(response);
+  }
+
   const initiateSearch = () => {
-    console.error('Search initialized!')
+    getMitarbeiter()
   }
 
   return (

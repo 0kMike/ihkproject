@@ -2,7 +2,7 @@ CREATE TABLE job
 (
     id        uuid PRIMARY KEY,
     key       bigint       NOT NULL,
-    title     varchar(255) NOT NULL,
+    jobtitle     varchar(255) NOT NULL,
     longitude decimal      NOT NULL,
     latitude  decimal      NOT NULL,
     firstDate date         NOT NULL,

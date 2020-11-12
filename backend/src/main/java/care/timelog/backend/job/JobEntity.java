@@ -22,8 +22,8 @@ public class JobEntity {
     @Column(name = "key")
     private Long key;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "jobtitle")
+    private String jobTitle;
 
     @Column(name = "longitude")
     private Double longitude;

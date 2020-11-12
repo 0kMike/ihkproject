@@ -28,13 +28,13 @@ public class JobService {
         return jobList;
     }
 
-    public Iterable<Job> findByLocation(String zip, ArrayList<String> titleList, int searchRadius) throws ZipCodeNotFoundException {
+    public Iterable<Job> findByLocation(String zip, ArrayList<String> jobTitleList, int searchRadius) throws ZipCodeNotFoundException {
         List<Job> jobList = new ArrayList<>();
 
         Location zipLocation = locationService.getLocationFromZip(zip);
         Coordinate searchLocation = new Coordinate(zipLocation.getLongitude(), zipLocation.getLatitude());
 
-        for (JobEntity jobEntity : jobRepository.findAllByTitleIn(titleList)) {
+        for (JobEntity jobEntity : jobRepository.findAllByJobTitleIn(jobTitleList)) {
 
             Coordinate jobCoordinate = new Coordinate(jobEntity.getLongitude(), jobEntity.getLatitude());
             double distance = calculateLinearDistanceInKm(searchLocation, jobCoordinate);
@@ -67,7 +67,7 @@ public class JobService {
         Job job = new Job();
         job.setId(entity.getId());
         job.setKey(entity.getKey());
-        job.setTitle(entity.getTitle());
+        job.setJobTitle(entity.getJobTitle());
         job.setFirstDate(entity.getFirstDate());
         job.setLastDate(entity.getLastDate());
 

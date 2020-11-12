@@ -8,5 +8,5 @@ import java.util.ArrayList;
 
 @Repository
 public interface JobRepository extends CrudRepository<JobEntity, Long> {
-    Iterable<JobEntity> findAllByTitleIn(ArrayList<String> titleList);
+    Iterable<JobEntity> findAllByJobTitleIn(ArrayList<String> jobTitleList);
 }

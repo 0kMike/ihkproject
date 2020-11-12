@@ -2,15 +2,14 @@ import axios from "axios";
 import {IJob} from "../interfaces/IJob";
 
 
-export async function getJobs(zip: String, jobTitles: String[], radius: number): Promise<IJob> {
+export async function getJobs(zip: string, jobTitles: string[], radius: number): Promise<IJob> {
   let responseData: IJob = {} as IJob;
-  const jobTitleParams: string = ""
 
-  jobTitles.map(jobTitle => {
-    jobTitleParams.concat("&title=" + jobTitle)
+  let requestUrl: string = "http://localhost:8080/search?zip=" + zip + "&radius=" + radius;
+
+  jobTitles.map(item => {
+     requestUrl = requestUrl.concat('&title=', item)
   })
-
-  const requestUrl: string = "http://localhost/8080/search?zip=" + zip + "&radius=" + radius + jobTitleParams;
 
   try {
     await axios
