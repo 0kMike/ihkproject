@@ -32,12 +32,12 @@ public class JobService {
         List<Job> jobList = new ArrayList<>();
 
         Location zipLocation = locationService.getLocationFromZip(zip);
-        Coordinate searchLocation = new Coordinate(zipLocation.getLongitude(), zipLocation.getLatitude());
+        Coordinate searchCoordinate = new Coordinate(zipLocation.getLongitude(), zipLocation.getLatitude());
 
         for (JobEntity jobEntity : jobRepository.findAllByJobTitleIn(jobTitleList)) {
 
             Coordinate jobCoordinate = new Coordinate(jobEntity.getLongitude(), jobEntity.getLatitude());
-            double distance = calculateLinearDistanceInKm(searchLocation, jobCoordinate);
+            double distance = getDistanceBetweenCoordinatesInKm(searchCoordinate, jobCoordinate);
 
             if (isWithinSearchRadius(searchRadius, distance)) {
                 jobList.add(mapJobEntityToJob(jobEntity));
@@ -51,15 +51,18 @@ public class JobService {
         return distance <= searchRadius;
     }
 
-    private double calculateLinearDistanceInKm(Coordinate searchLocation, Coordinate jobLocation) {
+    private double getDistanceBetweenCoordinatesInKm(Coordinate searchLocation, Coordinate jobLocation) {
         double longitudeDif = searchLocation.getLongitude() - jobLocation.getLongitude();
         double latitudeDif = searchLocation.getLatitude() - jobLocation.getLatitude();
 
-        return getLinearDistanceInKm(longitudeDif, latitudeDif);
+        double longitudeDifInKm = (longitudeDif) * 111.320 * Math.cos(latitudeDif * 0.0174533);
+        double latitudeDifInKm = (latitudeDif) * 110.574;
+
+        return calculateDistanceInKm(longitudeDifInKm, latitudeDifInKm);
     }
 
-    private double getLinearDistanceInKm(double longitudeDif, double latitudeDif) {
-        return Math.sqrt(Math.pow(longitudeDif, 2) + Math.pow(latitudeDif, 2)) * 111;
+    private double calculateDistanceInKm(double longitudeDif, double latitudeDif) {
+        return Math.sqrt(Math.pow(longitudeDif, 2) + Math.pow(latitudeDif, 2));
     }
 
     private Job mapJobEntityToJob(JobEntity entity) {

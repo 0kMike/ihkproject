@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Header from './components/NavigationBar/NavigationBar';
-import Content from './components/Body/Content';
+import Content from './components/Content/Content';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {getJobs} from "./provider/DataProvider";
 import {IJob} from "./interfaces/IJob";
@@ -9,11 +9,11 @@ import {IJob} from "./interfaces/IJob";
 function App() {
 
   const [activeSearchTags, setActiveSearchTags] = useState<string[]>([])
-  const [zipCode, setZipCode] = useState<string>("");
+  const [searchZip, setSearchZip] = useState<string>("");
   const [searchRadius, setSearchRadius] = useState<number>(25);
   const [searchResult, setSearchResult] = useState<IJob[]>([]);
 
-  const isSearchButtonActive: boolean = activeSearchTags.length > 0 && zipCode !== "";
+  const isSearchButtonActive: boolean = activeSearchTags.length > 0 && searchZip !== "";
 
   const toggleActiveSearchTag = (searchTag: string) => {
     let newActiveSearchTags = [...activeSearchTags];
@@ -25,13 +25,19 @@ function App() {
     }
   }
 
-  async function getMitarbeiter() {
-    let response = await getJobs(zipCode, activeSearchTags, searchRadius);
-    setSearchResult(response);
+  const getData = async () => {
+    await getJobs(searchZip, activeSearchTags, searchRadius)
+      .then((response) => {
+        setSearchResult(response);
+      })
+      .catch((error) => {
+          console.error(error)
+        }
+      );
   }
 
   const initiateSearch = () => {
-    getMitarbeiter()
+    getData()
   }
 
   return (
@@ -45,8 +51,8 @@ function App() {
               isSearchButtonActive={isSearchButtonActive}
               toggleActiveSearchTag={toggleActiveSearchTag}
               initiateSearch={initiateSearch}
-              setZipCode={setZipCode}
-              zipCode={zipCode}
+              setZipCode={setSearchZip}
+              zipCode={searchZip}
             />
           </div>
         </Route>

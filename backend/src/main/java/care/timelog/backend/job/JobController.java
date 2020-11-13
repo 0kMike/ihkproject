@@ -2,7 +2,6 @@ package care.timelog.backend.job;
 
 import care.timelog.backend.exception.ZipCodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,8 +16,8 @@ public class JobController {
 
     @GetMapping
     public Iterable<Job> findByLocation(@RequestParam("zip") String zip,
-                                        @RequestParam(name = "jobTitle") ArrayList<String> jobTitleList,
-                                        @RequestParam(name = "radius") @DefaultValue("0") int radius) throws ZipCodeNotFoundException {
+                                        @RequestParam(name = "jobtitle") ArrayList<String> jobTitleList,
+                                        @RequestParam(name = "radius") int radius) throws ZipCodeNotFoundException {
         return jobService.findByLocation(zip, jobTitleList, radius);
     }
 
