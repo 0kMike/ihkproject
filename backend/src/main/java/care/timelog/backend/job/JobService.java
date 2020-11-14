@@ -6,7 +6,10 @@ import care.timelog.backend.location.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -71,9 +74,16 @@ public class JobService {
         job.setId(entity.getId());
         job.setKey(entity.getKey());
         job.setJobTitle(entity.getJobTitle());
-        job.setFirstDate(entity.getFirstDate());
-        job.setLastDate(entity.getLastDate());
+        job.setFirstDate(convertToLocalDateViaInstant(entity.getFirstDate()));
+        job.setLastDate(convertToLocalDateViaInstant(entity.getLastDate()));
 
         return job;
     }
+
+    public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
 }
