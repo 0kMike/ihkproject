@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Content.module.css';
 import SearchForm from "./SearchForm/SearchForm";
+import {IJob} from "../../interfaces/IJob";
 
 interface IBodyProps {
   activeSearchTags: string[];
@@ -8,11 +9,12 @@ interface IBodyProps {
   isSearchButtonActive: boolean;
   initiateSearch(): void;
   setZipCode(zip: string): void;
-  zipCode: string
+  zipCode: string;
+  searchResult: IJob[];
 }
 
 function Content(props: IBodyProps) {
-  const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode} = props;
+  const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode, searchResult} = props;
 
   return (
     <main className={styles.body}>
@@ -24,6 +26,7 @@ function Content(props: IBodyProps) {
         initiateSearch={initiateSearch}
         setZipCode={setZipCode}
         zipCode={zipCode}
+        searchResult={searchResult}
       />
     </main>
   )

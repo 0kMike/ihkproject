@@ -4,6 +4,7 @@ import SearchTagSelection from './SearchTagSelection/SearchTagSelection';
 import SearchRegion from './SearchRegion/SearchRegion';
 import SearchResult from './SearchResult/SearchResult';
 import SearchButton from './SearchButton/SearchButton';
+import {IJob} from "../../../interfaces/IJob";
 
 interface IContentProps {
   activeSearchTags: string[];
@@ -12,10 +13,11 @@ interface IContentProps {
   initiateSearch(): void;
   setZipCode(zip: string): void;
   zipCode: string;
+  searchResult: IJob[];
 }
 
 function SearchForm(props: IContentProps) {
-  const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode} = props;
+  const {activeSearchTags, toggleActiveSearchTag, isSearchButtonActive, initiateSearch, setZipCode, zipCode, searchResult} = props;
 
 
   return (
@@ -29,7 +31,9 @@ function SearchForm(props: IContentProps) {
         setZipCode={setZipCode}
         zipCode={zipCode}/>
       <h2 className={styles.header}>3. Ergebnis:</h2>
-      <SearchResult/>
+      <SearchResult
+        searchResult={searchResult}
+      />
       <SearchButton
         isButtonActive={isSearchButtonActive}
         buttonAction={initiateSearch}
