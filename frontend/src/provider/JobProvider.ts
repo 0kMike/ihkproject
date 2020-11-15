@@ -1,4 +1,4 @@
-export const jobs: string[] = [
+export const searchableJobs: string[] = [
   'Gesundheitspfleger',
   'Fachkrankenpfleger Anästhesie',
   'Krankenpfleger',
