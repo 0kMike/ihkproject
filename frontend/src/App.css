@@ -4,9 +4,9 @@
   --color-grey: rgba(105, 105, 105, 1);
   --color-grey-light: rgba(204, 204, 204, 1);
   --color-black: rgba(27, 27, 27, 1);
-  --color-green-full: rgb(104, 190, 189);
+  --color-green-full: rgba(104, 190, 189, 1);
   --color-green-light: rgba(104, 190, 189, 0.5);
-  --color-red: rgb(255, 170, 170);
+  --color-red: rgba(255, 170, 170, 1);
 
   /*used colors*/
   --color-background: var(--color-beige);

@@ -53,6 +53,7 @@ function App() {
               initiateSearch={initiateSearch}
               setZipCode={setSearchZip}
               zipCode={searchZip}
+              searchResult={searchResult}
             />
           </div>
         </Route>
